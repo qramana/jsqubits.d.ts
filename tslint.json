@@ -1,0 +1,17 @@
+{
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+      "align": [true,
+        "parameters",
+        "statements"
+    ],
+      "indent": [false, 2],
+      "max-line-length": [true, 140],
+      "semicolon": true,
+      "no-namespace": false,
+      "interface-name": false
+    }
+}
