@@ -6,7 +6,11 @@
 
 ## TypeScript での型定義の利用
 
-jsqubits に依存しているプロジェクトで、 本リポジトリをプロジェクトに含めてください。
+jsqubits に依存しているTypeScriptプロジェクトに組み込むことで、 TypeScript による型検査を通すことができるようになります。
+
+### プロジェクトへの組み込み方法
+
+jsqubits.d.ts ファイルをプロジェクトに含めてください。
 本リポジトリは npm に登録されていないため、 `npm install` で node_modules 以下にインストールすることができません。
 
 ```
@@ -23,8 +27,10 @@ git clone git@github.com:m-qgame/jsqubits.d.ts.git
 
 jsqubits 本体は型定義を持たないため、 この d.ts が正しく定義されているかテストする必要があります。
 
+以下のコマンドを実行することで、 d.ts ファイル自体のテスト、テストコードの構文チェックが実行されます。
+
 ```
-npm install
+npm install // 初回のみ
 npm run test
 ```
 
