@@ -3,7 +3,7 @@ declare const jsqubits: JSQubitsStatic;
 declare namespace jsqubits {
   namespace jsqubits {
     interface QState {
-      multiply(amount: number): QState; // 正しくはComplexだがまだd.ts書いてない
+      multiply(amount: number | Complex): QState;
       X(targetBits: number): QState;
       toString(): string;
     }
@@ -31,7 +31,6 @@ interface JSQubitsStatic {
 
 interface InternalJSQubitsStatic {
   (bitString: string): any;
-  // ZERO: jsqubits.jsqubits.QState; // 正しくは Complexだがまだd.ts書いてない
   QState: QStateStatic;
   Complex: ComplexStatic;
   real: (real: number) => ComplexStatic;
@@ -43,11 +42,11 @@ interface QStateStatic {
 }
 
 interface ComplexStatic {
-  new (real: number, imaginary: number): jsqubits.jsqubits.Complex;
   ONE: jsqubits.jsqubits.Complex;
   ZERO: jsqubits.jsqubits.Complex;
   SQRT2: jsqubits.jsqubits.Complex;
   SQRT1_2: jsqubits.jsqubits.Complex;
+  new (real: number, imaginary: number): jsqubits.jsqubits.Complex;
 }
 
 declare module "jsqubits" {
