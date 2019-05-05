@@ -37,11 +37,26 @@ describe("jsqubits", () => {
       expect(typeof state.X).toBe("function");
       expect(state.X(0).toString()).toBe("|1>");
       expect(state.hadamard(0).toString()).toBe("(0.7071)|0> + (0.7071)|1>");
-
       expect(typeof state.multiply).toBe("function");
       done();
     });
   });
+
+  describe("cnot", () => {
+    const states = ["|00>", "|10>", "|01>", "|11>"];
+    const QState = jsq.jsqubits.QState;
+    let state: jsq.jsqubits.QState;
+
+    it("methods", (done: any) => {
+      const expectResults = ["|00>", "|10>", "|11>", "|01>"];
+      states.forEach((s, index) => {
+        state = jsq.jsqubits(s);
+        expect(state.cnot(0, 1).toString()).toBe(expectResults[index]);
+      });
+      done();
+    });
+  });
+
   describe("Complex", () => {
     const Complex = jsq.jsqubits.Complex;
     let complexNumber10: jsq.jsqubits.Complex;
