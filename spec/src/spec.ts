@@ -36,6 +36,7 @@ describe("jsqubits", () => {
     it("methods", (done: any) => {
       expect(typeof state.X).toBe("function");
       expect(state.X(0).toString()).toBe("|1>");
+      expect(state.hadamard(0).toString()).toBe("(0.7071)|0> + (0.7071)|1>");
 
       expect(typeof state.multiply).toBe("function");
       done();
