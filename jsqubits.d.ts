@@ -6,6 +6,7 @@ declare namespace jsqubits {
       multiply(amount: number | Complex): QState;
       X(targetBits: number): QState;
       hadamard(targetBits: number): QState;
+      cnot(controlBits: number, targetBits: number): QState;
       toString(): string;
     }
 
