@@ -5,6 +5,7 @@ declare namespace jsqubits {
     interface QState {
       multiply(amount: number | Complex): QState;
       X(targetBits: number): QState;
+      hadamard(targetBits: number): QState;
       toString(): string;
     }
 
