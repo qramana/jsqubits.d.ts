@@ -4,10 +4,13 @@ declare namespace jsqubits {
   namespace jsqubits {
     interface QState {
       multiply(amount: number | Complex): QState;
+      tensorProduct(qstate: QState): QState;
       X(targetBits: number): QState;
+      Z(targetBits: number): QState;
       hadamard(targetBits: number): QState;
       cnot(controlBits: number, targetBits: number): QState;
       toString(): string;
+      numBits(): number;
     }
 
     interface Complex {
