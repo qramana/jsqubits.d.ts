@@ -2,7 +2,6 @@ declare const jsqubits: JSQubitsStatic;
 
 declare namespace jsqubits {
   namespace jsqubits {
-    
     interface QState {
       multiply(amount: number | Complex): QState;
       tensorProduct(qstate: QState): QState;
@@ -32,11 +31,11 @@ declare namespace jsqubits {
       closeTo(other: Complex): number;
     }
     interface Measurement {
-      toString(): string;
-      asBitString(): string;
       numBits: number;
       result: number;
       newState: QState;
+      toString(): string;
+      asBitString(): string;
     }
   }
 }
@@ -66,11 +65,14 @@ interface ComplexStatic {
   new (real: number, imaginary: number): jsqubits.jsqubits.Complex;
 }
 
+/*
 interface MeasurementStatic {
   new (numBits: number, result: number, newState: jsqubits.jsqubits.QState): jsqubits.jsqubits.Measurement;
 }
+*/
+type MeasurementStatic = new (numBits: number, result: number, newState: jsqubits.jsqubits.QState) => jsqubits.jsqubits.Measurement;
 
-type MeasureBitsRange = {
+interface MeasureBitsRange {
   from: number;
   to: number;
 }
