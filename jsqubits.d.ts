@@ -11,7 +11,10 @@ declare namespace jsqubits {
       cnot(controlBits: number, targetBits: number): QState;
       toString(): string;
       numBits(): number;
+      measure(bits: number | number[] | jsqubits.ALL | MeasureBitsRange): Measurement;
     }
+
+    export type ALL = "ALL";
 
     interface Complex {
       add(other: number | Complex): Complex;
@@ -27,6 +30,13 @@ declare namespace jsqubits {
       eql(other: number | Complex): boolean;
       closeTo(other: Complex): number;
     }
+    interface Measurement {
+      numBits: number;
+      result: number;
+      newState: QState;
+      toString(): string;
+      asBitString(): string;
+    }
   }
 }
 
@@ -38,6 +48,7 @@ interface InternalJSQubitsStatic {
   (bitString: string): any;
   QState: QStateStatic;
   Complex: ComplexStatic;
+  Measurement: MeasurementStatic;
   real: (real: number) => ComplexStatic;
 }
 
@@ -52,6 +63,18 @@ interface ComplexStatic {
   SQRT2: jsqubits.jsqubits.Complex;
   SQRT1_2: jsqubits.jsqubits.Complex;
   new (real: number, imaginary: number): jsqubits.jsqubits.Complex;
+}
+
+/*
+interface MeasurementStatic {
+  new (numBits: number, result: number, newState: jsqubits.jsqubits.QState): jsqubits.jsqubits.Measurement;
+}
+*/
+type MeasurementStatic = new (numBits: number, result: number, newState: jsqubits.jsqubits.QState) => jsqubits.jsqubits.Measurement;
+
+interface MeasureBitsRange {
+  from: number;
+  to: number;
 }
 
 declare module "jsqubits" {
