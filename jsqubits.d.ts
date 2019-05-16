@@ -4,14 +4,29 @@ declare namespace jsqubits {
   namespace jsqubits {
     interface QState {
       multiply(amount: number | Complex): QState;
-      tensorProduct(qstate: QState): QState;
+      tensorProduct(qState: QState): QState;
+      x(targetBits: number): QState;
       X(targetBits: number): QState;
+      not(targetBits: number): QState;
+      y(targetBits: number): QState;
+      Y(targetBits: number): QState;
+      z(targetBits: number): QState;
       Z(targetBits: number): QState;
       hadamard(targetBits: number): QState;
+      s(targetBits: number): QState;
+      S(targetBits: number): QState;
+      t(targetBits: number): QState;
+      T(targetBits: number): QState;
       cnot(controlBits: number, targetBits: number): QState;
+      measure(bits: number | number[] | jsqubits.ALL | MeasureBitsRange): Measurement;
+
       toString(): string;
       numBits(): number;
-      measure(bits: number | number[] | jsqubits.ALL | MeasureBitsRange): Measurement;
+
+      add(qState: QState): QState;
+      subtract(qState: QState): QState;
+      normalize(): QState;
+
     }
 
     export type ALL = "ALL";
@@ -45,7 +60,7 @@ interface JSQubitsStatic {
 }
 
 interface InternalJSQubitsStatic {
-  (bitString: string): any;
+  (bitString: string): jsqubits.jsqubits.QState;
   QState: QStateStatic;
   Complex: ComplexStatic;
   Measurement: MeasurementStatic;
@@ -53,7 +68,7 @@ interface InternalJSQubitsStatic {
 }
 
 interface QStateStatic {
-  new (bitString: string): jsqubits.jsqubits.QState;
+  new (numBits: number, amplitudes?: jsqubits.jsqubits.Complex[]): jsqubits.jsqubits.QState;
   fromBits(bitString: string): jsqubits.jsqubits.QState;
 }
 
