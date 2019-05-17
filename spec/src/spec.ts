@@ -11,6 +11,12 @@ describe("export", () => {
 });
 
 describe("jsqubits", () => {
+  it("static interface", (done: any) => {
+    expect(jsq.jsqubits.real(1)).toBeInstanceOf(jsq.jsqubits.Complex);
+    expect(jsq.jsqubits.complex(1, 1)).toBeInstanceOf(jsq.jsqubits.Complex);
+    done();
+  });
+
   it("qubit initiate", (done: any) => {
     const state0String = "|0>";
     expect(jsq.jsqubits(state0String)).toBeInstanceOf(jsq.jsqubits.QState);
@@ -141,14 +147,14 @@ describe("QState operator", () => {
   });
 
   describe("dual qubits", () => {
-    let state = jsq.jsqubits("|0>");
-
     it("operator existence check", (done: any) => {
+      const state = jsq.jsqubits("|0>");
       expect(typeof state.cnot).toBe("function");
       done();
     });
 
     it("cnot", (done: any) => {
+      let state = jsq.jsqubits("|0>");
       const states = ["|00>", "|10>", "|01>", "|11>"];
       const expectStates = ["|00>", "|10>", "|11>", "|01>"];
 
@@ -156,6 +162,16 @@ describe("QState operator", () => {
         state = jsq.jsqubits(s);
         expect(state.cnot(0, 1).toString()).toBe(expectStates[index]);
       });
+      done();
+    });
+
+    it("multi range single qubit operator", (done: any) => {
+      let state = jsq.jsqubits("|000>");
+      expect(state.x([0, 2]).toString()).toBe("|101>");
+      state = jsq.jsqubits("|000>");
+      expect(state.x(jsq.jsqubits.ALL).toString()).toBe("|111>");
+      state = jsq.jsqubits("|000>");
+      expect(state.x({ from: 1, to: 2 }).toString()).toBe("|110>");
       done();
     });
   });

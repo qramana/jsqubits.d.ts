@@ -5,7 +5,7 @@ declare namespace jsqubits {
     interface QState {
       multiply(amount: number | Complex): QState;
       tensorProduct(qState: QState): QState;
-      x(targetBits: number): QState;
+      x(targetBits: number | number[] | InternalJSQubitsStatic["ALL"] | BitsRange): QState;
       X(targetBits: number): QState;
       not(targetBits: number): QState;
       y(targetBits: number): QState;
@@ -18,7 +18,7 @@ declare namespace jsqubits {
       t(targetBits: number): QState;
       T(targetBits: number): QState;
       cnot(controlBits: number, targetBits: number): QState;
-      measure(bits: number | number[] | jsqubits.ALL | MeasureBitsRange): Measurement;
+      measure(bits: number | number[] | jsqubits.ALL | BitsRange): Measurement;
 
       toString(): string;
       numBits(): number;
@@ -64,7 +64,11 @@ interface InternalJSQubitsStatic {
   QState: QStateStatic;
   Complex: ComplexStatic;
   Measurement: MeasurementStatic;
-  real: (real: number) => ComplexStatic;
+  real: (real: number) => jsqubits.jsqubits.Complex;
+  complex: (real: number, imaginary: number) => jsqubits.jsqubits.Complex;
+  ZERO: ComplexStatic["ZERO"];
+  ONE: jsqubits.jsqubits.Complex;
+  ALL: string;
 }
 
 interface QStateStatic {
@@ -87,7 +91,7 @@ interface MeasurementStatic {
 */
 type MeasurementStatic = new (numBits: number, result: number, newState: jsqubits.jsqubits.QState) => jsqubits.jsqubits.Measurement;
 
-interface MeasureBitsRange {
+interface BitsRange {
   from: number;
   to: number;
 }
