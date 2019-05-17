@@ -16,6 +16,7 @@ describe("jsqubits", () => {
     expect(jsq.jsqubits(state0String)).toBeInstanceOf(jsq.jsqubits.QState);
     expect(jsq.jsqubits.QState.fromBits(state0String)).toBeInstanceOf(jsq.jsqubits.QState);
     expect(jsq.jsqubits(state0String)).toBeInstanceOf(jsq.jsqubits.QState);
+    expect(new jsq.jsqubits.QState(1)).toBeInstanceOf(jsq.jsqubits.QState);
     expect(new jsq.jsqubits.QState(1, [jsq.jsqubits.Complex.ZERO])).toBeInstanceOf(jsq.jsqubits.QState);
     done();
   });
@@ -100,15 +101,41 @@ describe("QState operator", () => {
       done();
     });
 
+    it("y", (done: any) => {
+      let state = jsq.jsqubits("|0>");
+      expect(state.y(0).toString()).toBe("(i)|1>");
+      state = jsq.jsqubits("|1>");
+      expect(state.y(0).toString()).toBe("(-i)|0>");
+      done();
+    });
+
     it("z", (done: any) => {
-      const state = (jsq.jsqubits("|0>")).add(jsq.jsqubits("|1>")).normalize();
+      let state = (jsq.jsqubits("|0>")).add(jsq.jsqubits("|1>")).normalize();
       expect(state.z(0).toString()).toBe("(0.7071)|0> + (-0.7071)|1>");
+      state = (jsq.jsqubits("|0>")).subtract(jsq.jsqubits("|1>")).normalize();
+      expect(state.z(0).toString()).toBe("(0.7071)|0> + (0.7071)|1>");
       done();
     });
 
     it("h", (done: any) => {
       const state = jsq.jsqubits("|0>");
       expect(state.hadamard(0).toString()).toBe("(0.7071)|0> + (0.7071)|1>");
+      done();
+    });
+
+    it("s", (done: any) => {
+      let state = jsq.jsqubits("|0>");
+      expect(state.s(0).toString()).toBe("|0>");
+      state = jsq.jsqubits("|1>");
+      expect(state.s(0).toString()).toBe("(i)|1>");
+      done();
+    });
+
+    it("t", (done: any) => {
+      let state = jsq.jsqubits("|0>");
+      expect(state.t(0).toString()).toBe("|0>");
+      state = jsq.jsqubits("|1>");
+      expect(state.t(0).toString()).toBe("(0.7071+0.7071i)|1>");
       done();
     });
   });
