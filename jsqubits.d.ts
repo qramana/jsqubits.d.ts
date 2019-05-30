@@ -13,11 +13,15 @@ declare namespace jsqubits {
       z(targetBits: SingleQubitOperatorTargetQubits): QState;
       Z(targetBits: SingleQubitOperatorTargetQubits): QState;
       hadamard(targetBits: SingleQubitOperatorTargetQubits): QState;
+      r(targetBits: SingleQubitOperatorTargetQubits, angle: number): QState;
       s(targetBits: SingleQubitOperatorTargetQubits): QState;
       S(targetBits: SingleQubitOperatorTargetQubits): QState;
       t(targetBits: SingleQubitOperatorTargetQubits): QState;
       T(targetBits: SingleQubitOperatorTargetQubits): QState;
       cnot(controlBits: number, targetBits: number): QState;
+      rotateX(targetBits: SingleQubitOperatorTargetQubits, angle: number): QState;
+      rotateY(targetBits: SingleQubitOperatorTargetQubits, angle: number): QState;
+      rotateZ(targetBits: SingleQubitOperatorTargetQubits, angle: number): QState;
       measure(bits: number | number[] | jsqubits.ALL | BitsRange): Measurement;
 
       toString(): string;
