@@ -93,8 +93,12 @@ describe("QState operator", () => {
       expect(typeof state.S).toBe("function");
       expect(typeof state.t).toBe("function");
       expect(typeof state.T).toBe("function");
+      expect(typeof state.r).toBe("function");
       expect(typeof state.hadamard).toBe("function");
       expect(typeof state.measure).toBe("function");
+      expect(typeof state.rotateX).toBe("function");
+      expect(typeof state.rotateY).toBe("function");
+      expect(typeof state.rotateZ).toBe("function");
       done();
     });
 
@@ -142,6 +146,38 @@ describe("QState operator", () => {
       expect(state.t(0).toString()).toBe("|0>");
       state = jsq.jsqubits("|1>");
       expect(state.t(0).toString()).toBe("(0.7071+0.7071i)|1>");
+      done();
+    });
+
+    it("r", (done: any) => {
+      let state = jsq.jsqubits("|0>");
+      expect(state.r(0, Math.PI / 4).toString()).toBe("|0>");
+      state = jsq.jsqubits("|1>");
+      expect(state.r(0, Math.PI / 4).toString()).toBe("(0.7071+0.7071i)|1>");
+      done();
+    });
+
+    it("roteteX", (done: any) => {
+      let state = jsq.jsqubits("|0>");
+      expect(state.rotateX(0, Math.PI / 4).toString()).toBe("(0.9239)|0> + (-0.3827i)|1>");
+      state = jsq.jsqubits("|1>");
+      expect(state.rotateX(0, Math.PI / 4).toString()).toBe("(-0.3827i)|0> + (0.9239)|1>");
+      done();
+    });
+
+    it("roteteY", (done: any) => {
+      let state = jsq.jsqubits("|0>");
+      expect(state.rotateY(0, Math.PI / 4).toString()).toBe("(0.9239)|0> + (0.3827)|1>");
+      state = jsq.jsqubits("|1>");
+      expect(state.rotateY(0, Math.PI / 4).toString()).toBe("(-0.3827)|0> + (0.9239)|1>");
+      done();
+    });
+
+    it("roteteZ", (done: any) => {
+      let state = jsq.jsqubits("|0>");
+      expect(state.rotateZ(0, Math.PI / 4).toString()).toBe("(0.9239-0.3827i)|0>");
+      state = jsq.jsqubits("|1>");
+      expect(state.rotateZ(0, Math.PI / 4).toString()).toBe("(0.9239+0.3827i)|1>");
       done();
     });
   });
