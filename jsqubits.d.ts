@@ -49,6 +49,7 @@ declare namespace jsqubits {
       Z: QState["z"];
 
       controlledS(controlBits: undefined | SingleQubitOperatorTargetQubits, targetBits: SingleQubitOperatorTargetQubits): QState;
+
       s(targetBits: SingleQubitOperatorTargetQubits): QState;
       S: QState["s"];
 
