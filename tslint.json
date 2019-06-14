@@ -12,6 +12,7 @@
       "max-line-length": [true, 140],
       "semicolon": true,
       "no-namespace": false,
-      "interface-name": false
+      "interface-name": false,
+      "member-ordering": false
     }
 }
