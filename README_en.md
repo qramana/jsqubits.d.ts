@@ -12,8 +12,8 @@ Include `jsqubits.d.ts` for your project.
 git clone git@github.com:qramana/jsqubits.d.ts.git
 ```
 
-1. copy `jsqubits.d.ts` from cloned directory to your project.
-2. add `./path/to/yourProject/jsqubits.d.ts` to `files` property.
+1. Copy `jsqubits.d.ts` from cloned directory to your project,
+2. Add `./path/to/yourProject/jsqubits.d.ts` to `files` property.
 
 or, you can use `npm link`
 
