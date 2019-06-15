@@ -14,7 +14,7 @@ jsqubits.d.ts ファイルをプロジェクトに含めてください。
 本リポジトリは npm に登録されていないため、 `npm install` で node_modules 以下にインストールすることができません。
 
 ```
-git clone git@github.com:m-qgame/jsqubits.d.ts.git
+git clone git@github.com:qramana/jsqubits.d.ts.git
 ```
 
 した後、 `jsqubits.d.ts` ファイルを使いたいプロジェクト以下のディレクトリにコピーしてください。

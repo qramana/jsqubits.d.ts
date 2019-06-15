@@ -9,7 +9,7 @@ TypeScript declaration file for [jsqubits](https://github.com/davidbkemp/jsqubit
 Include `jsqubits.d.ts` for your project.
 
 ```
-git clone git@github.com:m-qgame/jsqubits.d.ts.git
+git clone git@github.com:qramana/jsqubits.d.ts.git
 ```
 
 1. copy `jsqubits.d.ts` from cloned directory to your project.
@@ -18,7 +18,7 @@ git clone git@github.com:m-qgame/jsqubits.d.ts.git
 or, you can use `npm link`
 
 ```
-git clone git@github.com:m-qgame/jsqubits.d.ts.git
+git clone git@github.com:qramana/jsqubits.d.ts.git
 cd path/to/jsqubits.d.ts
 npm link
 cd path/to/yourProject
