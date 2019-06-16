@@ -10,7 +10,7 @@
     "test:ts:jest": "jest",
     "lint": "tslint -c tslint.json jsqubits.d.ts spec/*.ts spec/**/*.ts --project ./spec/tsconfig.json"
   },
-  "repository": "https://github.com/m-qgame/jsqubits.d.ts",
+  "repository": "https://github.com/qramana/jsqubits.d.ts",
   "keywords": [],
   "author": "kamakiri01",
   "license": "MIT",
