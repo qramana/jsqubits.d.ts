@@ -17,10 +17,11 @@ jsqubits.d.ts ファイルをプロジェクトに含めてください。
 git clone git@github.com:qramana/jsqubits.d.ts.git
 ```
 
-した後、 `jsqubits.d.ts` ファイルを使いたいプロジェクト以下のディレクトリにコピーしてください。
+以下のコマンドを実行した後、 `jsqubits.d.ts` ファイルを使いたいプロジェクト以下のディレクトリにコピーしてください。
 
-または、 jsqubits.d.ts ディレクトリで `npm link` を実行した後、
+または、コピーするかわりに、 jsqubits.d.ts のディレクトリで `npm link` を実行した後、
 プロジェクトのディレクトリで `npm link jsqubits.d.ts` を実行してください。
+
 その後、tsconfig.json の files に `./node_modules/jsqubits.d.ts/jsqubits.d.ts` を追加してください。
 
 ## テスト方法
