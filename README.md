@@ -8,14 +8,10 @@ TypeScript declaration file for [jsqubits](https://github.com/davidbkemp/jsqubit
 
 Include `jsqubits.d.ts` for your project.
 
-```
-git clone git@github.com:qramana/jsqubits.d.ts.git
-```
-
 1. Copy `jsqubits.d.ts` from cloned directory to your project,
-2. Add `./path/to/yourProject/jsqubits.d.ts` to `files` property.
+2. Add `./path/to/yourProject/jsqubits.d.ts` to `files` property in `tsconfig.json`.
 
-or, you can use `npm link`
+or, you can use `npm link` instead of file copy
 
 ```
 git clone git@github.com:qramana/jsqubits.d.ts.git
