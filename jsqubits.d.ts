@@ -1,4 +1,4 @@
-declare const jsqubits: JSQubitsStatic;
+declare const jsqubits: ExternalJSQubitsStatic;
 
 declare namespace jsqubits {
   namespace jsqubits {
@@ -125,11 +125,11 @@ declare namespace jsqubits {
   }
 }
 
-interface JSQubitsStatic {
-  jsqubits: InternalJSQubitsStatic;
+interface ExternalJSQubitsStatic {
+  jsqubits: JSQubitsStatic;
 }
 
-interface InternalJSQubitsStatic {
+interface JSQubitsStatic {
   (bitString: string): jsqubits.jsqubits.QState;
   QState: QStateStatic;
   Complex: ComplexStatic;
@@ -141,13 +141,36 @@ interface InternalJSQubitsStatic {
   ONE: jsqubits.jsqubits.Complex;
   ALL: jsqubits.jsqubits.ALL;
   roundToZero: jsqubits.jsqubits.roundToZero;
+  QMath: JsqubitsmathStatic;
+}
+
+interface JsqubitsmathStatic {
+  powerMod(x: number, y: number, m: number): number;
+  powerFactor(n: number): number;
+  gcd(a: number, b: number): number;
+  lcm(a: number, b: number): number;
+  continuedFraction(targetValue: number, precision: number): ContinuedFractionResult;
+  findNullSpaceMod2(a: number[][], width: number[]): number[];
+}
+
+interface ContinuedFractionResult {
+  quotients: number[];
+  numerator: number;
+  denominator: number;
 }
 
 interface QStateStatic {
   new (numBits: number, amplitudes?: jsqubits.jsqubits.Complex[]): jsqubits.jsqubits.QState;
   fromBits(bitString: string): jsqubits.jsqubits.QState;
-  applyToOneBit(controlBits: number[], targetBit: number, operatorMatrix: jsqubits.jsqubits.Complex[][], qState: jsqubits.jsqubits.QState): jsqubits.jsqubits.QState;
-  applyOperatorMatrix(matrix: jsqubits.jsqubits.Complex[][], bitValue: number, amplitude: jsqubits.jsqubits.Complex)
+  applyToOneBit(
+    controlBits: number[],
+    targetBit: number,
+    operatorMatrix: jsqubits.jsqubits.Complex[][],
+    qState: jsqubits.jsqubits.QState): jsqubits.jsqubits.QState;
+  applyOperatorMatrix(
+    matrix: jsqubits.jsqubits.Complex[][],
+    bitValue: number,
+    amplitude: jsqubits.jsqubits.Complex): jsqubits.jsqubits.Complex[];
 }
 
 interface ComplexStatic {
