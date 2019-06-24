@@ -70,8 +70,7 @@ declare namespace jsqubits {
       controlledApplicationOfqBitOperator(
         controlBits: undefined | SingleQubitOperatorTargetQubits,
         targetBits: SingleQubitOperatorTargetQubits,
-        qbitFunction: (amplitudeOf0: Complex, amplitudeOf1: Complex)
-          => { amplitudeOf0: Complex, amplitudeOf1: Complex },
+        operatorMatrix: jsqubits.Complex[][],
         ): QState;
 
       applyFunction(
