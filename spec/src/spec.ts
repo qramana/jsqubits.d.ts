@@ -5,7 +5,7 @@ describe("export", () => {
     const keys = Object.keys(jsq);
     expect(keys.indexOf("jsqubits")).not.toBe(-1);
     expect(keys.indexOf("default")).not.toBe(-1);
-    expect(Object.keys(jsq.jsqubits).indexOf("QState")).not.toBe(-1);
+    expect(Object.keys(jsq.jsqubits).indexOf("QMath")).not.toBe(-1);
     done();
   });
 });
@@ -14,6 +14,16 @@ describe("jsqubits", () => {
   it("static interface", (done: any) => {
     expect(jsq.jsqubits.real(1)).toBeInstanceOf(jsq.jsqubits.Complex);
     expect(jsq.jsqubits.complex(1, 1)).toBeInstanceOf(jsq.jsqubits.Complex);
+    done();
+  });
+
+  it("jsqubitsmath", (done: any) => {
+    expect(typeof jsq.jsqubits.QMath.powerMod).toBe("function");
+    expect(typeof jsq.jsqubits.QMath.powerFactor).toBe("function");
+    expect(typeof jsq.jsqubits.QMath.gcd).toBe("function");
+    expect(typeof jsq.jsqubits.QMath.lcm).toBe("function");
+    expect(typeof jsq.jsqubits.QMath.continuedFraction).toBe("function");
+    expect(typeof jsq.jsqubits.QMath.findNullSpaceMod2).toBe("function");
     done();
   });
 

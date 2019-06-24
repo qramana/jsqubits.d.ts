@@ -127,7 +127,6 @@ declare namespace jsqubits {
 
 interface ExternalJSQubitsStatic {
   jsqubits: JSQubitsStatic;
-  jsqubitsmath: JsqubitsmathStatic;
 }
 
 interface JSQubitsStatic {
@@ -142,6 +141,7 @@ interface JSQubitsStatic {
   ONE: jsqubits.jsqubits.Complex;
   ALL: jsqubits.jsqubits.ALL;
   roundToZero: jsqubits.jsqubits.roundToZero;
+  QMath: JsqubitsmathStatic;
 }
 
 interface JsqubitsmathStatic {
