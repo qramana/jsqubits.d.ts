@@ -49,7 +49,6 @@ declare namespace jsqubits {
       Z: QState["z"];
 
       controlledS(controlBits: undefined | SingleQubitOperatorTargetQubits, targetBits: SingleQubitOperatorTargetQubits): QState;
-
       s(targetBits: SingleQubitOperatorTargetQubits): QState;
       S: QState["s"];
 
@@ -63,16 +62,15 @@ declare namespace jsqubits {
       /**
        * toffoli args is
        * (...controlBit: SingleQubitOperatorTargetQubits[], targetBit: SingleQubitOperatorTargetQubits)
-       * but TypeScript3.4 cannot define this argas.
+       * but TypeScript3.4 cannot define this args.
        * welcome Pull Request.
        */
       toffoli(...args: SingleQubitOperatorTargetQubits[]): QState;
 
-      controlledApplicatinOfqBitOperator(
+      controlledApplicationOfqBitOperator(
         controlBits: undefined | SingleQubitOperatorTargetQubits,
         targetBits: SingleQubitOperatorTargetQubits,
-        qbitFunction: (amplitudeOf0: Complex, amplitudeOf1: Complex)
-          => { amplitudeOf0: Complex, amplitudeOf1: Complex },
+        operatorMatrix: jsqubits.Complex[][],
         ): QState;
 
       applyFunction(
@@ -148,6 +146,8 @@ interface InternalJSQubitsStatic {
 interface QStateStatic {
   new (numBits: number, amplitudes?: jsqubits.jsqubits.Complex[]): jsqubits.jsqubits.QState;
   fromBits(bitString: string): jsqubits.jsqubits.QState;
+  applyToOneBit(controlBits: number[], targetBit: number, operatorMatrix: jsqubits.jsqubits.Complex[][], qState: jsqubits.jsqubits.QState): jsqubits.jsqubits.QState;
+  applyOperatorMatrix(matrix: jsqubits.jsqubits.Complex[][], bitValue: number, amplitude: jsqubits.jsqubits.Complex)
 }
 
 interface ComplexStatic {
