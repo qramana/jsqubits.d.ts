@@ -181,18 +181,20 @@ interface ComplexStatic {
   new (real: number, imaginary: number): jsqubits.jsqubits.Complex;
 }
 
-type MeasurementStatic =
-  new (numBits: number, result: number, newState: jsqubits.jsqubits.QState) => jsqubits.jsqubits.Measurement;
+interface MeasurementStatic {
+  new (numBits: number, result: number, newState: jsqubits.jsqubits.QState): jsqubits.jsqubits.Measurement;
+}
 
-type StateWithAmplitudeStatic =
-  new (numBits: number, index: number, amplitude: jsqubits.jsqubits.Complex) => jsqubits.jsqubits.StateWithAmplitude;
-
-type SingleQubitOperatorTargetQubits = number | number[] | jsqubits.jsqubits.ALL | BitsRange;
+interface StateWithAmplitudeStatic {
+  new (numBits: number, index: number, amplitude: jsqubits.jsqubits.Complex): jsqubits.jsqubits.StateWithAmplitude;
+}
 
 interface BitsRange {
   from: number;
   to: number;
 }
+
+type SingleQubitOperatorTargetQubits = number | number[] | jsqubits.jsqubits.ALL | BitsRange;
 
 declare module "jsqubits" {
   export = jsqubits;

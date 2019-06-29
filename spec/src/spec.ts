@@ -63,27 +63,54 @@ describe("jsqubits", () => {
     let complexNumber01: jsq.jsqubits.Complex;
 
     beforeEach(() => {
-      complexNumber10 = new jsq.jsqubits.Complex(1, 0);
-      complexNumber01 = new jsq.jsqubits.Complex(0, 1);
+      complexNumber10 = new Complex(1, 0);
+      complexNumber01 = new Complex(0, 1);
     });
 
     it("instantiate", (done: any) => {
-      expect(new jsq.jsqubits.Complex(1, 1).toString()).toBe("1+i");
-      expect(new jsq.jsqubits.Complex(1, -1).toString()).toBe("1-i");
+      expect(new Complex(1, 1).toString()).toBe("1+i");
+      expect(new Complex(1, -1).toString()).toBe("1-i");
       done();
     });
 
     it("static interface", (done: any) => {
-      expect(jsq.jsqubits.Complex.ZERO.toString()).toBe("0");
-      expect(jsq.jsqubits.Complex.ONE.toString()).toBe("1");
-      expect(jsq.jsqubits.Complex.SQRT2.toString()).toBe(Math.SQRT2.toString());
-      expect(jsq.jsqubits.Complex.SQRT1_2.toString()).toBe(Math.SQRT1_2.toString());
+      expect(Complex.ZERO.toString()).toBe("0");
+      expect(Complex.ONE.toString()).toBe("1");
+      expect(Complex.SQRT2.toString()).toBe(Math.SQRT2.toString());
+      expect(Complex.SQRT1_2.toString()).toBe(Math.SQRT1_2.toString());
       done();
     });
 
     it("methods", (done: any) => {
       expect(complexNumber10.add(complexNumber01)).toEqual(new Complex(1, 1));
       expect(complexNumber10.add(1)).toEqual(new Complex(2, 0));
+      done();
+    });
+  });
+
+  describe("Measurement", () => {
+    const state0String = "|0>";
+    const Measurement = jsq.jsqubits.Measurement;
+    const QState = jsq.jsqubits.QState;
+    let state: jsq.jsqubits.QState;
+
+    beforeEach(() => {
+      state = jsq.jsqubits(state0String);
+    });
+
+    it("instantiate", (done: any) => {
+      expect(state.measure(0)).toBeInstanceOf(jsq.jsqubits.Measurement);
+      expect(() => { const m = new Measurement(1, 0, state); }).not.toThrow();
+      done();
+    });
+
+    it("methods", (done: any) => {
+      const measure = state.measure(0);
+      expect(typeof measure.asBitString).toBe("function");
+      expect(measure.newState).toBeInstanceOf(jsq.jsqubits.QState);
+      expect(typeof measure.numBits).toBe("number");
+      expect(typeof measure.result).toBe("number");
+      expect(typeof measure.toString).toBe("function");
       done();
     });
   });
