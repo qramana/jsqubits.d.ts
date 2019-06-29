@@ -13,6 +13,9 @@
       "semicolon": true,
       "no-namespace": false,
       "interface-name": false,
-      "member-ordering": false
+      "member-ordering": false,
+      "member-access": false,
+      "max-classes-per-file": false,
+      "callable-types": false
     }
 }
