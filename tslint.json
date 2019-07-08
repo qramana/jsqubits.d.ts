@@ -16,6 +16,18 @@
       "member-ordering": false,
       "member-access": false,
       "max-classes-per-file": false,
-      "callable-types": false
+      "callable-types": false,
+      "trailing-comma": [
+        true,
+        {
+            "multiline": {
+              "objects": "never",
+              "arrays": "always",
+              "functions": "never",
+              "typeLiterals": "ignore"
+            },
+            "singleline": "never"
+        }
+    ]
     }
 }
