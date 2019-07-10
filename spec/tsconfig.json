@@ -5,11 +5,14 @@
     "declaration": false,
     "noImplicitAny": true,
     "module": "commonjs",
-    "outDir": "./build"
+    "outDir": "./build",
+    "baseUrl": "./",
+    "paths": {
+      "jsqubits": ["../types/jsqubits"]
+    },
   },
   "files": [
       "../node_modules/@types/jest/index.d.ts",
-    "../jsqubits.d.ts",
     "./src/spec.ts"
   ]
 }

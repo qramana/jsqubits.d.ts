@@ -209,4 +209,3 @@ interface BitsRange {
 }
 
 type SingleQubitOperatorTargetQubits = number | number[] | JSQubitsStatic["ALL"] | BitsRange;
-
