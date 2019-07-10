@@ -4,6 +4,8 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
 
+export = jsqubits;
+
 declare const jsqubits: ExternalJSQubitsStatic;
 
 declare namespace jsqubits {
@@ -208,6 +210,3 @@ interface BitsRange {
 
 type SingleQubitOperatorTargetQubits = number | number[] | JSQubitsStatic["ALL"] | BitsRange;
 
-declare module "jsqubits" {
-    export = jsqubits;
-}
