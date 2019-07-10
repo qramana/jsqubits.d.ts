@@ -1,7 +1,8 @@
-// Type definitions for jsqubits 1.1.0
+// Type definitions for jsqubits 1.1
 // Project: https://github.com/davidbkemp/jsqubits
 // Definitions by: kamakiri01 <https://github.com/kamakiri01>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 3.0
 
 declare const jsqubits: ExternalJSQubitsStatic;
 
@@ -82,7 +83,7 @@ declare namespace jsqubits {
             controlledApplicationOfqBitOperator(
                 controlBits: undefined | SingleQubitOperatorTargetQubits,
                 targetBits: SingleQubitOperatorTargetQubits,
-                operatorMatrix: jsqubits.Complex[][]
+                operatorMatrix: Complex[][]
             ): QState;
 
             applyFunction(
@@ -98,9 +99,6 @@ declare namespace jsqubits {
             eql(other?: QState): boolean;
             toString(): string;
         }
-
-        export type ALL = "ALL";
-        export type roundToZero = 0.0000001;
 
         interface Complex {
             add(other: number | Complex): Complex;
@@ -151,8 +149,8 @@ interface JSQubitsStatic {
     complex: (real: number, imaginary: number) => jsqubits.jsqubits.Complex;
     ZERO: ComplexStatic["ZERO"];
     ONE: jsqubits.jsqubits.Complex;
-    ALL: jsqubits.jsqubits.ALL;
-    roundToZero: jsqubits.jsqubits.roundToZero;
+    ALL: "ALL";
+    roundToZero: 0.0000001;
     QMath: JsqubitsmathStatic;
 }
 
@@ -208,7 +206,7 @@ interface BitsRange {
     to: number;
 }
 
-type SingleQubitOperatorTargetQubits = number | number[] | jsqubits.jsqubits.ALL | BitsRange;
+type SingleQubitOperatorTargetQubits = number | number[] | JSQubitsStatic["ALL"] | BitsRange;
 
 declare module "jsqubits" {
     export = jsqubits;
