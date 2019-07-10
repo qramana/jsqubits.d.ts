@@ -14,6 +14,12 @@ describe("jsqubits", () => {
   it("static interface", (done: any) => {
     expect(jsq.jsqubits.real(1)).toBeInstanceOf(jsq.jsqubits.Complex);
     expect(jsq.jsqubits.complex(1, 1)).toBeInstanceOf(jsq.jsqubits.Complex);
+    expect(jsq.jsqubits.complex(1, 1)).toBeInstanceOf(jsq.jsqubits.Complex);
+    expect(jsq.jsqubits.ALL).toBe("ALL");
+    expect(jsq.jsqubits.roundToZero).toBe(0.0000001);
+    expect(jsq.jsqubits.ZERO).toBe(jsq.jsqubits.Complex.ZERO);
+    expect(jsq.jsqubits.ZERO).toEqual(new jsq.jsqubits.Complex(0, 0));
+    expect(jsq.jsqubits.ONE).toEqual(new jsq.jsqubits.Complex(1, 0));
     done();
   });
 
@@ -51,6 +57,7 @@ describe("jsqubits", () => {
       expect(() => { QState.fromBits(state0String); }).not.toThrow();
       done();
     });
+
     it("state methods", (done: any) => {
       expect(typeof state.multiply).toBe("function");
       done();
