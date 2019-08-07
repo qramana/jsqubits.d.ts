@@ -11,18 +11,10 @@ jsqubits に依存しているTypeScriptプロジェクトに組み込むこと�
 ### プロジェクトへの組み込み方法
 
 jsqubits.d.ts ファイルをプロジェクトに含めてください。
-本リポジトリは npm に登録されていないため、 `npm install` で node_modules 以下にインストールすることができません。
 
 ```
-git clone git@github.com:qramana/jsqubits.d.ts.git
+npm install @types/jsqubits --save-dev
 ```
-
-以下のコマンドを実行した後、 `jsqubits.d.ts` ファイルを使いたいプロジェクト以下のディレクトリにコピーしてください。
-
-または、コピーするかわりに、 jsqubits.d.ts のディレクトリで `npm link` を実行した後、
-プロジェクトのディレクトリで `npm link jsqubits.d.ts` を実行してください。
-
-その後、tsconfig.json の files に `./node_modules/jsqubits.d.ts/jsqubits.d.ts` を追加してください。
 
 ## テスト方法
 
