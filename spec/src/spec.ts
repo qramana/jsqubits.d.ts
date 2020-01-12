@@ -60,6 +60,8 @@ describe("jsqubits", () => {
 
     it("state methods", (done: any) => {
       expect(typeof state.multiply).toBe("function");
+      expect(state.amplitude(0)).toEqual(new jsq.jsqubits.Complex(1, 0));
+      expect(state.amplitude("0")).toEqual(new jsq.jsqubits.Complex(1, 0));
       done();
     });
   });
@@ -85,6 +87,12 @@ describe("jsqubits", () => {
       expect(Complex.ONE.toString()).toBe("1");
       expect(Complex.SQRT2.toString()).toBe(Math.SQRT2.toString());
       expect(Complex.SQRT1_2.toString()).toBe(Math.SQRT1_2.toString());
+      done();
+    });
+
+    it("properties", (done: any) => {
+      expect(complexNumber10.real).toBe(1);
+      expect(complexNumber10.imaginary).toBe(0);
       done();
     });
 
