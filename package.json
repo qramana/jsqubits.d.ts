@@ -8,6 +8,7 @@
     "test:ts": "npm run test:ts:compile && npm run test:ts:jest",
     "test:ts:compile": "tsc -p ./spec",
     "test:ts:jest": "jest",
+    "eslint": "eslint -c .eslintrc.js \"types/**/*.ts\"",
     "lint": "tslint -c tslint.json jsqubits.d.ts spec/*.ts spec/**/*.ts --project ./spec/tsconfig.json"
   },
   "repository": "https://github.com/qramana/jsqubits.d.ts",
@@ -18,9 +19,11 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.1.0",
     "jest": "^24.1.0",
     "jsqubits": "~1.1.0",
-    "tslint": "^5.4.3",
-    "typescript": "^3.0.0"
+    "typescript": "^4.0.0"
   }
 }
