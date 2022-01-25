@@ -80,7 +80,7 @@ declare namespace jsqubits {
              * but TypeScript3.4 cannot define this args.
              * welcome Pull Request.
              */
-            toffoli(...args: SingleQubitOperatorTargetQubits[]): QState;
+            toffoli(...args: ToffoliArgs): QState;
 
             controlledApplicationOfqBitOperator(
                 controlBits: undefined | SingleQubitOperatorTargetQubits,
@@ -136,6 +136,11 @@ declare namespace jsqubits {
         }
     }
 }
+
+// At least one control bit must be supplied to toffoli()
+type ToffoliControlQubits = [SingleQubitOperatorTargetQubits, ...SingleQubitOperatorTargetQubits[]];
+
+type ToffoliArgs = [...controlBit: ToffoliControlQubits, targetBit: SingleQubitOperatorTargetQubits];
 
 interface ExternalJSQubitsStatic {
     jsqubits: JSQubitsStatic;
