@@ -262,5 +262,12 @@ describe("QState operator", () => {
       expect(state.x({ from: 1, to: 2 }).toString()).toBe("|110>");
       done();
     });
+
+    it("toffoli", (done: any) => {
+      let state = jsq.jsqubits("|000>");
+      expect(state.toffoli(1, 0).toString()).toBe("|000>");
+      done();
+
+    });
   });
 });
