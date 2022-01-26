@@ -2,7 +2,7 @@
 // Project: https://github.com/davidbkemp/jsqubits
 // Definitions by: kamakiri01 <https://github.com/kamakiri01>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 3.0
+// TypeScript Version: 4.0
 
 export = jsqubits;
 
@@ -140,7 +140,7 @@ declare namespace jsqubits {
 // At least one control bit must be supplied to toffoli()
 type ToffoliControlQubits = [SingleQubitOperatorTargetQubits, ...SingleQubitOperatorTargetQubits[]];
 
-type ToffoliArgs = [...controlBit: ToffoliControlQubits, targetBit: SingleQubitOperatorTargetQubits];
+type ToffoliArgs = [...controlBits: ToffoliControlQubits, targetBit: SingleQubitOperatorTargetQubits];
 
 interface ExternalJSQubitsStatic {
     jsqubits: JSQubitsStatic;

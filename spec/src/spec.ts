@@ -151,6 +151,7 @@ describe("QState operator", () => {
       expect(typeof state.rotateX).toBe("function");
       expect(typeof state.rotateY).toBe("function");
       expect(typeof state.rotateZ).toBe("function");
+      expect(typeof state.toffoli).toBe("function");
       done();
     });
 
@@ -266,8 +267,9 @@ describe("QState operator", () => {
     it("toffoli", (done: any) => {
       let state = jsq.jsqubits("|000>");
       expect(state.toffoli(1, 0).toString()).toBe("|000>");
+      state = jsq.jsqubits("|110>");
+      expect(state.toffoli(2, 1, 0).toString()).toBe("|111>");
       done();
-
     });
   });
 });
